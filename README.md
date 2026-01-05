@@ -1,15 +1,3 @@
-# Diyobot - Diyabet Yönetim Platformu
-
-Modern bir diyabet yönetim ve bilgilendirme platformu.
-
-## Özellikler
-
-- 🏠 **Ana Sayfa**: Diyabet hakkında genel bilgiler
-- 📚 **Blog Sistemi**: MongoDB ile blog yazma ve yönetimi
-- 🔍 **Diyabet Analizi**: Makine öğrenmesi ile diyabet risk analizi
-- 👨‍💼 **Admin Paneli**: Blog yazma ve yönetim paneli (`/paneldoc`)
-
-## Kurulum
 
 ### 1. Bağımlılıkları Yükleyin
 

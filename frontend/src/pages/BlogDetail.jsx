@@ -112,7 +112,7 @@ function BlogDetail() {
             </div>
           )}
           <article
-            className="prose prose-lg max-w-none"
+            className="prose prose-lg max-w-none blog-content"
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
           <div className="mt-12 pt-8 border-t">

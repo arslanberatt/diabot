@@ -1,3 +1,7 @@
+import { useMemo } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 function BlogForm({
   formData,
   setFormData,
@@ -5,6 +9,29 @@ function BlogForm({
   loading,
   editingBlog,
 }) {
+  const modules = useMemo(() => ({
+    toolbar: [
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      [{ 'font': [] }],
+      [{ 'size': [] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'indent': '-1'}, { 'indent': '+1' }],
+      ['link', 'image'],
+      [{ 'color': [] }, { 'background': [] }],
+      [{ 'align': [] }],
+      ['clean']
+    ],
+  }), []);
+
+  const formats = [
+    'header', 'font', 'size',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent',
+    'link', 'image',
+    'color', 'background',
+    'align'
+  ];
+
   return (
     <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-2xl font-bold text-gray-900 mb-6">
@@ -61,15 +88,20 @@ function BlogForm({
           <label className="block text-gray-700 font-semibold mb-2">
             İçerik *
           </label>
-          <textarea
-            value={formData.content}
-            onChange={(e) =>
-              setFormData({ ...formData, content: e.target.value })
-            }
-            rows="10"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-            required
-          />
+          <div className="quill-wrapper">
+            <ReactQuill
+              theme="snow"
+              value={formData.content}
+              onChange={(value) =>
+                setFormData({ ...formData, content: value })
+              }
+              modules={modules}
+              formats={formats}
+              placeholder="İçeriğinizi buraya yazın..."
+              className="bg-white"
+              style={{ minHeight: '300px' }}
+            />
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-4">
