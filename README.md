@@ -1,8 +1,12 @@
 
-### 1. Bağımlılıkları Yükleyin
+### 1. Bağımlılıkları Yükleyin (ayrı ayrı)
 
 ```bash
+cd server 
 npm install
+
+# diğer terminalde
+
 cd frontend
 npm install
 ```
